@@ -1,0 +1,20 @@
+The storage complexity and flops for multiplication using various storage schemes:
+
+Matrix one dimensions m*n
+Matrix two dimensions n*k
+
+1.Dense matrix:
+	storage complexity:   m*n+n*k     
+        Flops for multiplication: 2*m*n*k
+
+2.Banded matrices:
+        storage complexity: (p+q+1)*n ,where p and q are lower and upper bands
+	Flops for multiplication: 2*n*n*(min(p1,q1,p2,q2))
+
+3.Coordinate Storage Format (COO):
+	storage complexity: 3(l+b) where l and b are the number of non zero values in matrix 1 and 2
+	Flops for multiplication: 2*l*b
+
+4.Compressed Sparse Row (CSR) Format:
+	storage complexity: less than 3(l+b)
+	Flops for multiplication: 2*l*(n) where n is the size of row of 2nd matrix
